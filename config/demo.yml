@@ -1,0 +1,17 @@
+server.port: 8080
+---
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.ibm.db2.jcc.DB2Driver
+    url: jdbc:db2://localhost:50000/testdb:currentSchema=data;
+    username: test
+    password: testpwd
+  jpa:
+    database-platform: org.hibernate.dialect.DB2iDialect
+    properties:
+      hibernate.globally_quoted_identifiers: true
+  liquibase:
+    change-log: db/changelog/changelog-master.xml
+    enabled: true
